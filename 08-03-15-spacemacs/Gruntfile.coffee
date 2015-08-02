@@ -83,11 +83,11 @@ module.exports = (grunt) ->
                         'css/*.css'
                         'resources/**'
                     ]
-                    dest: 'dist/'
+                    dest: 'spacemacs/'
                 },{
                     expand: true
                     src: ['index.html']
-                    dest: 'dist/'
+                    dest: 'spacemacs/'
                     filter: 'isFile'
                 }]
 
@@ -95,7 +95,7 @@ module.exports = (grunt) ->
         buildcontrol:
 
             options:
-                dir: 'dist'
+                dir: 'spacemacs'
                 commit: true
                 push: true
                 message: 'Built from %sourceCommit% on branch %sourceBranch%'
