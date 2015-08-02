@@ -24,6 +24,11 @@
     [
         "agenda4.md",
         "dotspacemacs.md",
-        "dotspacemacs2.md"
-    ]
+        "dotspacemacs2.md",
+        "dotspacemacs3.md"
+
+    ],
+    "references.md",
+    "thankyou.md",
+    "questions.md"
 ]
