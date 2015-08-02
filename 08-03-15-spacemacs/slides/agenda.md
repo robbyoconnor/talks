@@ -2,5 +2,5 @@
 
 - What is spacemacs (a very broad overview -- not everything)
 - How to install it
-- How to configure it (partially demo)
+- How to configure it (partial demo)
 - Questions
