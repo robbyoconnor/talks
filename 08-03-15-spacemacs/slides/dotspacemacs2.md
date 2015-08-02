@@ -1,0 +1,4 @@
+- The `.spacemacs` file has three functions:
+  - `dotspacemacs/layers`
+  - `dotspacemacs/init`
+  - `dotspacemacs/config`

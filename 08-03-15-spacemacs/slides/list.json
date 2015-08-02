@@ -4,7 +4,9 @@
         "aboutme.md",
         "aboutme2.md"
     ],
+    "agenda.md",
     [
+        "agenda2.md",
         "whatis.md",
         "whatis2.md",
         "whatis3.md",
@@ -14,8 +16,14 @@
         "whatis7.md"
     ],
     [
+        "agenda3.md",
         "how_it_is_setup.md",
-        "steps.md"
-
+        "steps.md",
+        "almostdone.md"
+    ],
+    [
+        "agenda4.md",
+        "dotspacemacs.md",
+        "dotspacemacs2.md"
     ]
 ]
