@@ -5,6 +5,6 @@
     "useSass": true,
     "deployToGithubPages": true,
     "githubUsername": "robbyoconnor",
-    "githubRepository": "presentations"
+    "githubRepository": "talks"
   }
 }
