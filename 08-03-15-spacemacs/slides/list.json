@@ -24,11 +24,13 @@
     [
         "agenda4.md",
         "dotspacemacs.md",
-        "dotspacemacs2.md",
-        "dotspacemacs3.md"
-
+        "dotspacemacs2.md"
     ],
+    [
+        "agenda5.md",
+        "dotspacemacs3.md"
+    ],
+    "keybindings.md",
     "references.md",
-    "thankyou.md",
-    "questions.md"
+    "thankyou.md"
 ]
