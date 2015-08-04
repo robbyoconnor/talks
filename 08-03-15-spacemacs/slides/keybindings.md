@@ -2,6 +2,7 @@
 
 - `SPC feR`
 - `SPC fed`
+- `SPC feh`
 - `SPC mgg`
 
 - Buffer management always start with `SPC b`

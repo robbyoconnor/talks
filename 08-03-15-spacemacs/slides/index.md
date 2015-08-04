@@ -1,3 +1,4 @@
 # A gentle Introduction to Spacemacs
-## New York Emacs Meetup
-## August 3, 2015
+## New York Vim Meetup
+## August 5, 2015
+### (Previously delivered at the New York Emacs Meetup on August 3, 2015)
