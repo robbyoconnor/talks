@@ -1,12 +1,14 @@
 # Some statistics at time of writing
-- 3,648 commits
-- 196 contributors
-- 164 Watchers
+- 3,650 commits
+- 114 releases 
+- 197 contributors
+- 167 Watchers
 - 3,070 stars
-- 686 forks
-- 514 issues
-- 65 open PRs and 1,225 closed PRs
-- 1178 members in the Gitter chatroom
+- 692 forks
+- 518 open issues / 731 closed issues
+- 66 open PRs and 1,225 closed PRs
+- 1204 members in the Gitter chatroom
 
 note:
+These stats have likely changed while I am up here speaking, but are current as of 4:19pm today. 
 
