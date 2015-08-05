@@ -30,7 +30,10 @@
         "agenda5.md",
         "dotspacemacs3.md"
     ],
-    "keybindings.md",
+    [
+        "keybindings.md",
+        "keybindings2.md"
+    ],
     "references.md",
     "thankyou.md"
 ]
