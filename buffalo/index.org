@@ -1,0 +1,88 @@
+#    -*- mode: org -*-
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:1
+#+REVEAL_MARGIN: 0.2
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: night
+#+REVEAL_HLEVEL: 1
+#+REVEAL_EXTRA_CSS: ./buffalo.css
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
+
+#+TITLE: Testing is fun again with Buffalo!
+#+AUTHOR: Robby O'Connor
+#+EMAIL: robby.oconnor@gmail.com
+
+* Introduction
+  * AS from SUNY Orange in Computer Science
+  * BA From Hunter College in Computer Science
+  * FOSS Junky
+  * Infrastructure Engineer/Steering Committee Member for LibreHealth(http://librehealth.io)
+* About this talk
+#+ATTR_REVEAL: :frag (appear)
+ * Highly technical
+ * Buffalo is my first foray into Go -- so this is from the perspective of a newbie to Go -- correct me if I'm wrong!
+ * All materials presented will be provided at the end
+ * Questions? Something unclear? Ask me and I'll back up.
+* What is Buffalo???
+[[https://raw.githubusercontent.com/robbyoconnor/talks/master/buffalo/images/logo_med.png]]
+#+BEGIN_QUOTE
+A Go web development eco-system,
+designed to make your life easier.
+#+END_QUOTE
+* What is Buffalo???
+#+ATTR_REVEAL: :frag (appear)
+ * Inspired by Rails
+ * Currently at version 0.12.6
+ * Industry standard libraries such as Gorilla Toolkit for routes, sessions, cookies
+ * Optional templates, ORM, Tasks/Workers, and Frontend pipeline using Webpack
+ * Doesn't tie you down either -- most is optional
+* Setting up Buffalo
+#+ATTR_REVEAL: :frag (appear)
+ * go get -u -v https://github.com/gobuffalo/buffalo/...
+ * If you want password auth
+ * go get -u -v https://github.com/gobuffalo/buffalo-auth/...
+ * We'll use this for our demo app:
+ * gR get -u -v https://github.com/gobuffalo/buffalo-goth/...
+
+* Create new buffalo application
+For this talk we will make a CFP application which will be donated to the meetup.
+#+REVEAL: split
+  Create new buffalo application cont'd
+#+ATTR_REVEAL: :frag (appear)
+  * buffalo new golangnyc-cfp-aug23
+* The Buffalo App Structure directories only
+#+BEGIN_SRC
+.
+├── actions -> These are the handlers/controllers
+├── assets -> raw static assets which get compiled/compressed and placed in public/
+├── fixtures -> database fixtures for tests
+├── grifts -> tasks -- things like seeding the db, etc
+├── locales -> internationaliation
+├── migrations -> database migrations
+├── models -> db models
+├── public -> This directory contains the public (compiled/compressed) assets. If you use webpack, it will put its assets in this directory.
+└── templates -> view templates
+#+END_SRC
+  * The =database.yml= file is for database configuration.
+  * =main.go= is the entrypoint that bootstraps your buffalo app.
+
+* Testing in Buffalo is awesome
+#+ATTR_REVEAL: :frag (appear)
+  * Buffalo provides you test suites for your actions, resources, and the generators will create test templates for you!
+  * Can run from the buffalo toolkit
+  * Let's jump to code and add some features
+
+* More Info
+  * Slides: https://talks.robbyoconnor.us/buffalo/
+  * Sample app we worked on: https://github.com/robbyoconnor/golangnyc_cfp_aug23
+  * https://gobuffalo.io/en are the docs for Buffalo.
+  * https://github.com/gobuffalo has all code under the Buffalo project.
+  * https://www.gopherguides.com/redeem/buffalo-nyt-meetup
+  * @robbyoconnor on GitHub/Twitter/etc.
+
+* Questions???
+ * Open to employment opportunities -- let's chat!

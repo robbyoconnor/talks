@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Testing is fun again with Buffalo!</title>
+<meta name="author" content="(Robby O'Connor)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="./buffalo.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Testing is fun again with Buffalo!</h1><h2 class="author">Robby O'Connor</h2><p class="date">Created: 2018-08-23 Thu 20:38</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org53ef781">Introduction</a></li>
+<li><a href="#/slide-org97d595e">About this talk</a></li>
+<li><a href="#/slide-orgeba5038">What is Buffalo???</a></li>
+<li><a href="#/slide-org80a9cd9">What is Buffalo???</a></li>
+<li><a href="#/slide-orgd465d12">Setting up Buffalo</a></li>
+<li><a href="#/slide-org0907d70">Create new buffalo application</a></li>
+<li><a href="#/slide-org363cb69">The Buffalo App Structure directories only</a></li>
+<li><a href="#/slide-orgfa4c2a2">Testing in Buffalo is awesome</a></li>
+<li><a href="#/slide-org74a32e4">More Info</a></li>
+<li><a href="#/slide-org349bfa3">Questions???</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org53ef781">
+<h2 id="org53ef781">Introduction</h2>
+<ul>
+<li>AS from SUNY Orange in Computer Science</li>
+<li>BA From Hunter College in Computer Science</li>
+<li>FOSS Junky</li>
+<li>Infrastructure Engineer/Steering Committee Member for LibreHealth(<a href="http://librehealth.io">http://librehealth.io</a>)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org97d595e">
+<h2 id="org97d595e">About this talk</h2>
+<ul>
+<li class="fragment appear">Highly technical</li>
+<li class="fragment appear">Buffalo is my first foray into Go &#x2013; so this is from the perspective of a newbie to Go &#x2013; correct me if I'm wrong!</li>
+<li class="fragment appear">All materials presented will be provided at the end</li>
+<li class="fragment appear">Questions? Something unclear? Ask me and I'll back up.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgeba5038">
+<h2 id="orgeba5038">What is Buffalo???</h2>
+
+<div class="figure">
+<p><img src="https://raw.githubusercontent.com/robbyoconnor/talks/master/buffalo/images/logo_med.png" alt="logo_med.png" />
+</p>
+</div>
+<blockquote nil>
+<p>
+A Go web development eco-system,
+designed to make your life easier.
+</p>
+</blockquote>
+</section>
+</section>
+<section>
+<section id="slide-org80a9cd9">
+<h2 id="org80a9cd9">What is Buffalo???</h2>
+<ul>
+<li class="fragment appear">Inspired by Rails</li>
+<li class="fragment appear">Currently at version 0.12.6</li>
+<li class="fragment appear">Industry standard libraries such as Gorilla Toolkit for routes, sessions, cookies</li>
+<li class="fragment appear">Optional templates, ORM, Tasks/Workers, and Frontend pipeline using Webpack</li>
+<li class="fragment appear">Doesn't tie you down either &#x2013; most is optional</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgd465d12">
+<h2 id="orgd465d12">Setting up Buffalo</h2>
+<ul>
+<li class="fragment appear">go get -u -v <a href="https://github.com/gobuffalo/buffalo/">https://github.com/gobuffalo/buffalo/</a>&#x2026;</li>
+<li class="fragment appear">If you want password auth</li>
+<li class="fragment appear">go get -u -v <a href="https://github.com/gobuffalo/buffalo-auth/">https://github.com/gobuffalo/buffalo-auth/</a>&#x2026;</li>
+<li class="fragment appear">We'll use this for our demo app:</li>
+<li class="fragment appear">gR get -u -v <a href="https://github.com/gobuffalo/buffalo-goth/">https://github.com/gobuffalo/buffalo-goth/</a>&#x2026;</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org0907d70">
+<h2 id="org0907d70">Create new buffalo application</h2>
+<p>
+For this talk we will make a CFP application which will be donated to the meetup.
+</p>
+</section>
+<section >
+<p>
+Create new buffalo application cont'd
+</p>
+<ul>
+<li class="fragment appear">buffalo new golangnyc-cfp-aug23</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org363cb69">
+<h2 id="org363cb69">The Buffalo App Structure directories only</h2>
+<pre  class="example">
+.
+├── actions -&gt; These are the handlers/controllers
+├── assets -&gt; raw static assets which get compiled/compressed and placed in public/
+├── fixtures -&gt; database fixtures for tests
+├── grifts -&gt; tasks -- things like seeding the db, etc
+├── locales -&gt; internationaliation
+├── migrations -&gt; database migrations
+├── models -&gt; db models
+├── public -&gt; This directory contains the public (compiled/compressed) assets. If you use webpack, it will put its assets in this directory.
+└── templates -&gt; view templates
+</pre>
+<ul>
+<li>The <code>database.yml</code> file is for database configuration.</li>
+<li><code>main.go</code> is the entrypoint that bootstraps your buffalo app.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfa4c2a2">
+<h2 id="orgfa4c2a2">Testing in Buffalo is awesome</h2>
+<ul>
+<li class="fragment appear">Buffalo provides you test suites for your actions, resources, and the generators will create test templates for you!</li>
+<li class="fragment appear">Can run from the buffalo toolkit</li>
+<li class="fragment appear">Let's jump to code and add some features</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org74a32e4">
+<h2 id="org74a32e4">More Info</h2>
+<ul>
+<li>Slides: <a href="https://talks.robbyoconnor.us/buffalo/">https://talks.robbyoconnor.us/buffalo/</a></li>
+<li>Sample app we worked on: <a href="https://github.com/robbyoconnor/golangnyc_cfp_aug23">https://github.com/robbyoconnor/golangnyc_cfp_aug23</a></li>
+<li><a href="https://gobuffalo.io/en">https://gobuffalo.io/en</a> are the docs for Buffalo.</li>
+<li><a href="https://github.com/gobuffalo">https://github.com/gobuffalo</a> has all code under the Buffalo project.</li>
+<li><a href="https://www.gopherguides.com/redeem/buffalo-nyt-meetup">https://www.gopherguides.com/redeem/buffalo-nyt-meetup</a></li>
+<li>@robbyoconnor on GitHub/Twitter/etc.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org349bfa3">
+<h2 id="org349bfa3">Questions???</h2>
+<ul>
+<li>Open to employment opportunities &#x2013; let's chat!</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.20,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
